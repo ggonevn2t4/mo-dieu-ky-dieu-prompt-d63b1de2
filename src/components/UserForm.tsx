@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
@@ -49,7 +48,11 @@ const UserForm: React.FC = () => {
   async function onSubmit(values: FormValues) {
     setIsLoading(true);
     try {
-      const prompt = await generateDioramaPrompt(values);
+      const prompt = await generateDioramaPrompt({
+        name: values.name,
+        occupation: values.occupation,
+        additionalInfo: values.additionalInfo
+      });
       
       if (prompt) {
         navigate("/results", { 
