@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { generateDioramaPrompt } from "@/services/openai";
+import { generateDioramaPrompt } from "@/services/deepseek";
 
 const formSchema = z.object({
   name: z.string().min(2, {

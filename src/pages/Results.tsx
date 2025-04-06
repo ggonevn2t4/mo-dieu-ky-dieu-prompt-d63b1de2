@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromptDisplay from "@/components/PromptDisplay";
-import { generateDioramaPrompt } from "@/services/openai";
+import { generateDioramaPrompt } from "@/services/deepseek";
 import { toast } from "sonner";
 
 const Results: React.FC = () => {
