@@ -22,7 +22,7 @@ export async function generateDioramaPrompt(params: PromptGenerationParams): Pro
         "Authorization": `Bearer ${OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4o",
+        model: "gpt-4o", // Thay đổi model từ gpt-4o sang gpt-4o-mini để giảm chi phí
         messages: [
           {
             role: "system",
@@ -57,14 +57,29 @@ export async function generateDioramaPrompt(params: PromptGenerationParams): Pro
     if (!response.ok) {
       const errorData = await response.json();
       console.error("OpenAI API Error:", errorData);
-      throw new Error("Không thể kết nối đến API OpenAI. Vui lòng thử lại sau.");
+      
+      // Xử lý các loại lỗi cụ thể
+      if (errorData.error?.code === "insufficient_quota") {
+        throw new Error("Tài khoản OpenAI của bạn đã hết hạn mức. Vui lòng kiểm tra thông tin thanh toán của bạn.");
+      } else if (errorData.error?.code === "rate_limit_exceeded") {
+        throw new Error("Đã vượt quá giới hạn tốc độ API. Vui lòng thử lại sau một vài phút.");
+      } else {
+        throw new Error("Không thể kết nối đến API OpenAI. Vui lòng thử lại sau.");
+      }
     }
     
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
     console.error("Error generating prompt:", error);
-    toast.error("Đã xảy ra lỗi khi tạo prompt. Vui lòng thử lại.");
+    
+    // Hiển thị thông báo lỗi cụ thể hơn cho người dùng
+    if (error instanceof Error) {
+      toast.error(error.message);
+    } else {
+      toast.error("Đã xảy ra lỗi khi tạo prompt. Vui lòng thử lại.");
+    }
+    
     return "";
   }
 }

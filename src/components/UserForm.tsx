@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
@@ -65,7 +66,11 @@ const UserForm: React.FC = () => {
         toast.error("Không thể tạo prompt. Vui lòng thử lại sau.");
       }
     } catch (error) {
-      toast.error("Đã xảy ra lỗi. Vui lòng thử lại sau.");
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("Đã xảy ra lỗi. Vui lòng thử lại sau.");
+      }
     } finally {
       setIsLoading(false);
     }
