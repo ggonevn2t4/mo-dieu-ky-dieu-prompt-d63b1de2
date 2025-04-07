@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
@@ -5,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromptDisplay from "@/components/PromptDisplay";
-import { generateDioramaPrompt } from "@/services/openrouter";
+import { generateDioramaPrompt } from "@/services/gemini";
 import { toast } from "sonner";
 
 const Results: React.FC = () => {
