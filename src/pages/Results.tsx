@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
@@ -6,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromptDisplay from "@/components/PromptDisplay";
-import { generateDioramaPrompt } from "@/services/deepseek";
+import { generateDioramaPrompt } from "@/services/openrouter";
 import { toast } from "sonner";
 
 const Results: React.FC = () => {
@@ -22,7 +21,6 @@ const Results: React.FC = () => {
     additionalInfo: "",
   };
 
-  // Redirect to home if no prompt data is available
   React.useEffect(() => {
     if (!location.state?.prompt) {
       navigate("/");

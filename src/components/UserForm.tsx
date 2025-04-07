@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
@@ -17,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { generateDioramaPrompt } from "@/services/deepseek";
+import { generateDioramaPrompt } from "@/services/openrouter";
 
 const formSchema = z.object({
   name: z.string().min(2, {
