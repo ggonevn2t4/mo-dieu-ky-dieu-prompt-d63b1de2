@@ -12,7 +12,7 @@ const Header: React.FC = () => {
             <Sparkles className="h-8 w-8 text-secondary animate-float" />
             <div className="absolute inset-0 blur-sm opacity-50 bg-secondary rounded-full"></div>
           </div>
-          <span className="font-bold text-2xl gold-text">DioramaTech</span>
+          <span className="font-bold text-2xl gold-text italic">DUAstudio</span>
         </Link>
         <nav className="hidden md:flex gap-8">
           <Link to="/" className="text-foreground/80 hover:text-foreground transition-colors">

@@ -28,6 +28,15 @@ const Index: React.FC = () => {
                 Tạo Mô Tả Diorama Siêu Thực <br /> Cho Chính Bạn
               </h1>
               
+              <div className="relative mb-12 max-w-2xl mx-auto overflow-hidden rounded-xl shadow-2xl">
+                <img 
+                  src="/lovable-uploads/e96522f8-2c1a-49cc-8211-325a85a18734.png" 
+                  alt="DUAstudio Diorama Collection" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+              </div>
+              
               <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Biến thông tin cá nhân của bạn thành những mô tả diorama siêu thực tuyệt đẹp. 
                 Tạo và sử dụng với ChatGPT để tạo hình ảnh nghệ thuật.
